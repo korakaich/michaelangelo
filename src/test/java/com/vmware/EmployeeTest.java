@@ -20,6 +20,13 @@ public class EmployeeTest {
 		employee.setSsn(ssn);
 		assertEquals(employee.getSsn(), ssn);
 	}
+	@Test
+	public void addAnotherSocialSecurityNumber(){
+		Employee employee =  new Employee();
+		String ssn = "193-45-6989";
+		employee.setSsn(ssn);
+		assertEquals(employee.getSsn(), ssn);
+	}
 	@Test 
 	public void fixDE30201_SocialSecurityMustBeACertainFormat() {
 		String badSSN = "RamLikesNoOne";
