@@ -2,27 +2,31 @@ package com.vmware;
 
 import static org.testng.Assert.*;
 
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class EmployeeTest {
 
+	private Employee employee;
+	@BeforeMethod
+	public void setUp(){
+		System.out.println("Creating new employee");
+		employee = new Employee();
+	}
 	@Test
 	public void createEmployeeAndGetName() {
-		Employee employee = new Employee();
 		String name = "Ricardo Montalban";
-		employee.setName(name);
+		this.employee.setName(name);
 		assertEquals(employee.getName(), name);
 	}
 	@Test
 	public void addSocialSecurityNumber(){
-		Employee employee =  new Employee();
 		String ssn = "123-45-6789";
-		employee.setSsn(ssn);
+		this.employee.setSsn(ssn);
 		assertEquals(employee.getSsn(), ssn);
 	}
 	@Test
 	public void addAnotherSocialSecurityNumber(){
-		Employee employee =  new Employee();
 		String ssn = "193-45-6989";
 		employee.setSsn(ssn);
 		assertEquals(employee.getSsn(), ssn);
@@ -30,7 +34,6 @@ public class EmployeeTest {
 	@Test 
 	public void fixDE30201_SocialSecurityMustBeACertainFormat() {
 		String badSSN = "RamLikesNoOne";
-		Employee employee = new Employee ();
 		try{
 			employee.setSsn(badSSN);
 			fail("this line should have never been reached");
