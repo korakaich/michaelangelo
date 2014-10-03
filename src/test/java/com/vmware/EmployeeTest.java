@@ -2,6 +2,8 @@ package com.vmware;
 
 import static org.testng.Assert.*;
 
+import java.util.regex.Pattern;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -11,7 +13,8 @@ public class EmployeeTest {
 	@BeforeMethod
 	public void setUp(){
 		System.out.println("Creating new employee");
-		employee = new Employee();
+		Pattern p = Pattern.compile("\\d{3}-\\d{2}-\\d{4}");
+		employee = new Employee(p);
 	}
 	@Test
 	public void createEmployeeAndGetName() {

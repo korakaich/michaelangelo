@@ -8,8 +8,8 @@ public class Employee {
 	private String ssn;
 	private Matcher matcher;
 	private Pattern pattern;
-	public Employee () {
-		pattern = Pattern.compile("\\d{3}-\\d{2}-\\d{4}");
+	public Employee (Pattern p) {
+		pattern = p;
 	}
 
 	public void setName(String name) {
