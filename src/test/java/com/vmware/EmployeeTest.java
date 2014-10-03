@@ -16,8 +16,20 @@ public class EmployeeTest {
 	@Test
 	public void addSocialSecurityNumber(){
 		Employee employee =  new Employee();
-		String ssn = "123-456-7890";
+		String ssn = "123-45-6789";
 		employee.setSsn(ssn);
 		assertEquals(employee.getSsn(), ssn);
+	}
+	@Test 
+	public void fixDE30201_SocialSecurityMustBeACertainFormat() {
+		String badSSN = "RamLikesNoOne";
+		Employee employee = new Employee ();
+		try{
+			employee.setSsn(badSSN);
+			fail("this line should have never been reached");
+		}
+		catch(IllegalArgumentException e){
+			assertEquals(e.getMessage(), "RamLikesNoOne is not a valid social security number");
+		}
 	}
 }
