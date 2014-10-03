@@ -13,4 +13,11 @@ public class EmployeeTest {
 		employee.setName(name);
 		assertEquals(employee.getName(), name);
 	}
+	@Test
+	public void addSocialSecurityNumber(){
+		Employee employee =  new Employee();
+		String ssn = "123-456-7890";
+		employee.setSsn(ssn);
+		assertEquals(employee.getSsn(), ssn);
+	}
 }
